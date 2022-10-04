@@ -1,5 +1,11 @@
-import React from "react";
+import { GlobalStyled } from "./global/GlobalStyled";
+import Router from "./routes/Routes";
 
 export default function App() {
-  return <div>Hello World! 🤭</div>;
+  return (
+    <>
+      <GlobalStyled />
+      <Router />
+    </>
+  );
 }
