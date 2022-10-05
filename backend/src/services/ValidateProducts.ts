@@ -18,8 +18,8 @@ export class ValidateProducts {
     const result: IProductsStockDTO[] = [];
     for (const product of products) {
       const check: number | undefined =
-        await this.productDatabase.findProductById(product.id_product);
-
+        Number(await this.productDatabase.findProductById(product.id_product));
+      
       if (!check) return undefined;
 
       result.push({ id_product: product.id_product, qty_stock: check });
@@ -46,9 +46,9 @@ export class ValidateProducts {
       const id = this.idGenerator.generate();
       structured.push({
         id,
+        amount: product.amount,
         id_order,
         id_product: product.id_product,
-        amount: product.amount,
       });
     }
     return structured;

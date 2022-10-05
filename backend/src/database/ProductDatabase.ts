@@ -22,14 +22,12 @@ export class ProductDatabase extends BaseDatabase {
   };
 
   public findProductById = async (id: string): Promise<number | undefined> => {
-    const result: string[] = await BaseDatabase.connection(
-      ProductDatabase.TABLE_PRODUCT
-    )
+    const result = await BaseDatabase.connection(ProductDatabase.TABLE_PRODUCT)
       .select("qty_stock")
       .where({ id });
 
     if (!result.length) return undefined;
 
-    return Number(result[0]);
+    return Number(result[0].qty_stock);
   };
 }

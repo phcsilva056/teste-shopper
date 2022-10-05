@@ -1,6 +1,6 @@
 export interface IOrderDB {
   id: string;
-  name: string;
+  customer_name: string;
   delivery_date: Date;
   products: IProductsDTO[];
 }
@@ -13,7 +13,7 @@ export interface IOrderAddDB {
 export class Order {
   constructor(
     private id: string,
-    private name: string,
+    private customer_name: string,
     private delivery_date: Date,
     private products: IOrderProductsDTO[]
   ) {}
@@ -22,8 +22,8 @@ export class Order {
     return this.id;
   };
 
-  public getName = () => {
-    return this.name;
+  public getCustomerName = () => {
+    return this.customer_name;
   };
 
   public getDeliveryDate = () => {
@@ -38,8 +38,8 @@ export class Order {
     this.id = newId;
   };
 
-  public setName = (newName: string) => {
-    this.name = newName;
+  public setName = (newCustomerName: string) => {
+    this.customer_name = newCustomerName;
   };
 
   public setDeliveryDate = (newDeliveryDate: Date) => {
@@ -52,7 +52,7 @@ export class Order {
 }
 
 export interface IInputDTO {
-  name: string;
+  customer_name: string;
   delivery_date: string;
   products: IProductsDTO[];
 }
@@ -69,7 +69,7 @@ export interface IProductsStockDTO {
 
 export interface IOrderDTO {
   id: string;
-  name: string;
+  customer_name: string;
   delivery_date: Date;
 }
 

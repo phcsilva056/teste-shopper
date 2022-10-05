@@ -14,20 +14,28 @@ export class OrderDatabase extends BaseDatabase {
   private toOrderModel = (order: Order): IOrderAddDB => {
     const addOrder: IOrderDTO = {
       id: order.getId(),
-      name: order.getName(),
+      customer_name: order.getCustomerName(),
       delivery_date: order.getDeliveryDate(),
     };
     const addProductsOrder: IOrderProductsDTO[] = order.getProducts();
     return { addOrder, addProductsOrder };
   };
 
+  private createProductsOrder = async (
+    productsOrder: IOrderProductsDTO[]
+  ): Promise<void> => {
+    await BaseDatabase.connection(OrderDatabase.TABLE_PRODUCT_ORDER).insert(
+      productsOrder
+    );
+  };
+
   public createOrder = async (order: Order): Promise<void> => {
     const addOrderStrutured = this.toOrderModel(order);
+
     await BaseDatabase.connection(OrderDatabase.TABLE_ORDER).insert(
       addOrderStrutured.addOrder
     );
-    await BaseDatabase.connection(OrderDatabase.TABLE_PRODUCT_ORDER).insert(
-      addOrderStrutured.addProductsOrder
-    );
+
+    await this.createProductsOrder(addOrderStrutured.addProductsOrder);
   };
 }

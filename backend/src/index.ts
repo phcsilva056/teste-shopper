@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import { orderRouter } from "./router/orderRouter";
 // import { productRouter } from "./router/productRouter";
 
 dotenv.config();
@@ -14,3 +15,4 @@ app.listen(process.env.PORT || 3003, () => {
 });
 
 // app.use("/product", productRouter);
+app.use("/order", orderRouter);

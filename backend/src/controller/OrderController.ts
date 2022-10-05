@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import { OrderBusiness } from "../business/OrderBusiness";
 import { BaseError } from "../errors/BaseError";
-import { IOrderDTO } from "../models/Order";
+import { IInputDTO } from "../models/Order";
 
 export class OrderController {
   constructor(private orderBusiness: OrderBusiness) {}
 
   public createOrder = async (req: Request, res: Response) => {
     try {
-      const input: IOrderDTO = {
-        name: req.body.name,
+      const input: IInputDTO = {
+        customer_name: req.body.customer_name,
         delivery_date: req.body.delivery_date,
         products: req.body.products,
       };

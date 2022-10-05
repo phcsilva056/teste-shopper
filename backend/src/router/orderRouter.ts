@@ -16,4 +16,4 @@ const orderController = new OrderController(
   )
 );
 
-orderRouter.post("/order/create", orderController.createOrder);
+orderRouter.post("/create", orderController.createOrder);

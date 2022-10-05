@@ -12,17 +12,20 @@ export class OrderBusiness {
     private validateProducts: ValidateProducts
   ) {}
 
-  public createOrder = async (input: IInputDTO) => {
-    const { name, delivery_date, products } = input;
+  public createOrder = async (input: IInputDTO): Promise<void> => {
+    const { customer_name, delivery_date, products } = input;
 
-    if (typeof name !== "string")
+    if (typeof customer_name !== "string" || !customer_name)
       throw new ParamsError(
-        "Parâmetro 'name' está inválido e não é do tipo string!"
+        "Parâmetro 'customer_name' está inválido,seu valor não é do tipo string ou está vazia!"
       );
 
-    if (!Date.parse(delivery_date))
+    let date = delivery_date.replaceAll("/", "-");
+    if (!Date.parse(date)) date = date.split("-").reverse().join("-");
+
+    if (!Date.parse(date) || !delivery_date)
       throw new ParamsError(
-        "Parâmetro 'delivery_date' não tem uma data válida!"
+        "Parâmetro 'delivery_date' não tem uma data válida ou está vazia!"
       );
 
     if (!products.length)
@@ -49,8 +52,8 @@ export class OrderBusiness {
 
     const newOrder = new Order(
       id,
-      name,
-      new Date(delivery_date),
+      customer_name,
+      new Date(date),
       productsOrderWithID
     );
 
