@@ -17,26 +17,6 @@ Content-Type: application/json
         {
             "amount": 11,
             "id_product": "19"
-        },
-        {
-            "amount": 51,
-            "id_product": "16"
-        },
-        {
-            "amount": 11,
-            "id_product": "16"
-        },
-        {
-            "amount": 51,
-            "id_product": "18"
-        },
-        {
-            "amount": 11,
-            "id_product": "16"
-        },
-        {
-            "amount": 51,
-            "id_product": "18"
         }
     ]
 }

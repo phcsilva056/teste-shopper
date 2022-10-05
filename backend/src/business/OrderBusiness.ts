@@ -34,7 +34,7 @@ export class OrderBusiness {
       );
 
     const checkProducts = await this.validateProducts.checkProducts(products);
-    if (!checkProducts) throw new NotFoundError();
+    if (!checkProducts) throw new NotFoundError("Algum produto não existe ou está duplicado!");
 
     const checkStockProducts = this.validateProducts.checkStockProducts(
       products,
