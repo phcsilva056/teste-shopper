@@ -2,7 +2,12 @@ export interface IOrderDB {
   id: string;
   name: string;
   delivery_date: Date;
-  products: IProductsDTO;
+  products: IProductsDTO[];
+}
+
+export interface IOrderAddDB {
+  addOrder: IOrderDTO;
+  addProductsOrder: IOrderProductsDTO[];
 }
 
 export class Order {
@@ -10,7 +15,7 @@ export class Order {
     private id: string,
     private name: string,
     private delivery_date: Date,
-    private products: IProductsDTO[]
+    private products: IOrderProductsDTO[]
   ) {}
 
   public getId = () => {
@@ -41,12 +46,36 @@ export class Order {
     this.delivery_date = newDeliveryDate;
   };
 
-  public setProducts = (newProducts: IProductsDTO[]) => {
+  public setProducts = (newProducts: IOrderProductsDTO[]) => {
     this.products = newProducts;
   };
 }
 
+export interface IInputDTO {
+  name: string;
+  delivery_date: string;
+  products: IProductsDTO[];
+}
+
 export interface IProductsDTO {
-  products: string;
+  amount: number;
+  id_product: string;
+}
+
+export interface IProductsStockDTO {
+  qty_stock: number;
+  id_product: string;
+}
+
+export interface IOrderDTO {
+  id: string;
+  name: string;
+  delivery_date: Date;
+}
+
+export interface IOrderProductsDTO {
+  id: string;
+  amount: number;
+  id_order: string;
   id_product: string;
 }
