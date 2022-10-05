@@ -14,6 +14,13 @@ export class ProductDatabase extends BaseDatabase {
     return productDB;
   };
 
+  public getAllProducts = async (): Promise<IProductDB[]> => {
+    const allProducts = await BaseDatabase.connection(
+      ProductDatabase.TABLE_PRODUCT
+    ).select("*");
+    return allProducts;
+  };
+
   public createProduct = async (product: Product): Promise<void> => {
     const productDB = this.productDBModel(product);
     await BaseDatabase.connection(ProductDatabase.TABLE_PRODUCT).insert(
