@@ -6,6 +6,7 @@ import {
 } from "../models/Order";
 import { IProductDB, Product } from "../models/Product";
 import { BaseDatabase } from "./BaseDatabase";
+import { ProductDatabase } from "./ProductDatabase";
 
 export class OrderDatabase extends BaseDatabase {
   public static TABLE_ORDER = "Shopper_Case_Order";
@@ -29,6 +30,18 @@ export class OrderDatabase extends BaseDatabase {
     );
   };
 
+  private updateProductStock = async (
+    productsOrder: IOrderProductsDTO[]
+  ): Promise<void> => {
+    for (const product of productsOrder) {
+      console.log(product);
+
+      await BaseDatabase.connection.raw(
+        `update ${ProductDatabase.TABLE_PRODUCT} set qty_stock = qty_stock - ${product.amount} where id=${product.id_product};`
+      );
+    }
+  };
+
   public createOrder = async (order: Order): Promise<void> => {
     const addOrderStrutured = this.toOrderModel(order);
 
@@ -37,5 +50,8 @@ export class OrderDatabase extends BaseDatabase {
     );
 
     await this.createProductsOrder(addOrderStrutured.addProductsOrder);
+    console.log("teste");
+
+    await this.updateProductStock(addOrderStrutured.addProductsOrder);
   };
 }
