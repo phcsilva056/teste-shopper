@@ -28,14 +28,14 @@ class Migrations extends BaseDatabase {
   };
   createTables = async () => {
     await BaseDatabase.connection.raw(`
+        DROP TABLE IF EXISTS ${OrderDatabase.TABLE_PRODUCT_ORDER};
         DROP TABLE IF EXISTS ${ProductDatabase.TABLE_PRODUCT};
         DROP TABLE IF EXISTS ${OrderDatabase.TABLE_ORDER};
-        DROP TABLE IF EXISTS ${OrderDatabase.TABLE_PRODUCT_ORDER};
         
         CREATE TABLE IF NOT EXISTS ${ProductDatabase.TABLE_PRODUCT}(
           id VARCHAR(255) PRIMARY KEY UNIQUE,
           name VARCHAR(255) NOT NULL,
-          price INT NOT NULL,
+          price DOUBLE NOT NULL,
           qty_stock INT NOT NULL
         );
 
@@ -51,14 +51,12 @@ class Migrations extends BaseDatabase {
           id_order VARCHAR(255) NOT NULL,
           id_product VARCHAR(255) NOT NULL,
           FOREIGN KEY (id_order) REFERENCES ${OrderDatabase.TABLE_ORDER}(id),
-          FOREIGN KEY (id_product) REFERENCES ${OrderDatabase.TABLE_PRODUCT_ORDER}(id)
+          FOREIGN KEY (id_product) REFERENCES ${ProductDatabase.TABLE_PRODUCT}(id)
         );              
     `);
   };
 
   insertData = async () => {
-    console.log(dataProducts);
-
     await BaseDatabase.connection(ProductDatabase.TABLE_PRODUCT).insert(
       dataProducts
     );

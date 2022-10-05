@@ -14,10 +14,27 @@ export class ProductDatabase extends BaseDatabase {
     return productDB;
   };
 
-  public createProduct = async (product: Product) => {
+  public getAllProducts = async (): Promise<IProductDB[]> => {
+    const allProducts = await BaseDatabase.connection(
+      ProductDatabase.TABLE_PRODUCT
+    ).select("*");
+    return allProducts;
+  };
+
+  public createProduct = async (product: Product): Promise<void> => {
     const productDB = this.productDBModel(product);
     await BaseDatabase.connection(ProductDatabase.TABLE_PRODUCT).insert(
       productDB
     );
+  };
+
+  public findProductById = async (id: string): Promise<number | undefined> => {
+    const result = await BaseDatabase.connection(ProductDatabase.TABLE_PRODUCT)
+      .select("qty_stock")
+      .where({ id });
+
+    if (!result.length) return undefined;
+
+    return Number(result[0].qty_stock);
   };
 }
