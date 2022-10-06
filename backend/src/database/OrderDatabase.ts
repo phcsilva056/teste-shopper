@@ -33,8 +33,6 @@ export class OrderDatabase extends BaseDatabase {
     productsOrder: IOrderProductsDTO[]
   ): Promise<void> => {
     for (const product of productsOrder) {
-      console.log(product);
-
       await BaseDatabase.connection.raw(
         `update ${ProductDatabase.TABLE_PRODUCT} set qty_stock = qty_stock - ${product.amount} where id=${product.id_product};`
       );
@@ -49,7 +47,6 @@ export class OrderDatabase extends BaseDatabase {
     );
 
     await this.createProductsOrder(addOrderStrutured.addProductsOrder);
-    console.log("teste");
 
     await this.updateProductStock(addOrderStrutured.addProductsOrder);
   };
