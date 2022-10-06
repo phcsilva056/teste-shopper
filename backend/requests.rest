@@ -11,12 +11,11 @@ Content-Type: application/json
             "id_product": "16"
         },
         {
-            "amount": 51,
-            "id_product": "18"
-        },
-        {
-            "amount": 11,
+            "amount": 121,
             "id_product": "19"
         }
     ]
 }
+
+### Get Products
+GET http://localhost:3003/product
