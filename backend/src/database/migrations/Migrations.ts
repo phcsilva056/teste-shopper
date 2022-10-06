@@ -1,7 +1,7 @@
 import { BaseDatabase } from "../BaseDatabase";
 import { OrderDatabase } from "../OrderDatabase";
 import { ProductDatabase } from "../ProductDatabase";
-import { dataProducts } from "./Data";
+import { dataProducts } from "./data";
 
 class Migrations extends BaseDatabase {
   execute = async () => {

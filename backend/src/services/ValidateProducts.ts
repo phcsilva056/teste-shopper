@@ -48,6 +48,14 @@ export class ValidateProducts {
     return true;
   };
 
+  public checkValuesProducts = (products: IProductsDTO[]): boolean => {
+    for (const product of products) {
+      const { amount, id_product } = product;
+      if (!amount || !id_product) return false;
+    }
+    return true;
+  };
+
   public structuredProducts = (
     products: IProductsDTO[],
     id_order: string
