@@ -45,9 +45,3 @@ export class Product {
     this.qty_stock = newQtyStock;
   };
 }
-
-export interface IInputDTO {
-  name: string;
-  price: number;
-  qty_stock: number;
-}

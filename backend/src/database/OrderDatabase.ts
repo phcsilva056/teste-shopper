@@ -4,7 +4,6 @@ import {
   IOrderProductsDTO,
   Order,
 } from "../models/Order";
-import { IProductDB, Product } from "../models/Product";
 import { BaseDatabase } from "./BaseDatabase";
 import { ProductDatabase } from "./ProductDatabase";
 
