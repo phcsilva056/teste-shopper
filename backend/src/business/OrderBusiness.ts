@@ -20,17 +20,31 @@ export class OrderBusiness {
         "Parâmetro 'customer_name' está inválido,seu valor não é do tipo string ou está vazia!"
       );
 
+    if (!delivery_date) {
+      throw new ParamsError(
+        "Parâmetro 'delivery_date' é inválido, valor não foi informado!"
+      );
+    }
+
     let date = delivery_date.replaceAll("/", "-");
     if (!Date.parse(date)) date = date.split("-").reverse().join("-");
 
-    if (!Date.parse(date) || !delivery_date)
+    if (!Date.parse(date))
       throw new ParamsError(
-        "Parâmetro 'delivery_date' não tem uma data válida ou está vazia!"
+        "Parâmetro 'delivery_date' não tem uma data válida!"
       );
 
-    if (!products.length)
+    if (!products || !products.length)
       throw new ParamsError(
         "Parâmetro 'products' não está vazio ou não tem valor válido!"
+      );
+
+    const checkProductsValues =
+      this.validateProducts.checkValuesProducts(products);
+
+    if (!checkProductsValues)
+      throw new ParamsError(
+        "Parâmetro 'products' possui parâmetros inválido, deve conter 'amount'(number, e maior que 0) e 'id_product'(string)!"
       );
 
     const checkProducts = await this.validateProducts.checkProducts(products);
@@ -43,7 +57,9 @@ export class OrderBusiness {
     );
 
     if (!checkStockProducts)
-      throw new ParamsError("Algum produto não tem estoque suficiente!");
+      throw new ParamsError(
+        "Algum produto não tem estoque suficiente ou valor inválido!"
+      );
 
     const id = this.idGenerator.generate();
     const productsOrderWithID = this.validateProducts.structuredProducts(
