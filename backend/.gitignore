@@ -3,3 +3,5 @@
 node_modules
 build
 coverage
+.git
+package-lock.json

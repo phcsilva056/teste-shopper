@@ -42,7 +42,8 @@ export class ValidateProducts {
     stocks: IProductsStockDTO[]
   ): boolean => {
     for (let i = 0; i < products.length; i++)
-      if (products[i].amount > stocks[i].qty_stock) return false;
+      if (products[i].amount > stocks[i].qty_stock || products[i].amount < 1)
+        return false;
 
     return true;
   };

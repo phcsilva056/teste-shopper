@@ -43,7 +43,9 @@ export class OrderBusiness {
     );
 
     if (!checkStockProducts)
-      throw new ParamsError("Algum produto não tem estoque suficiente!");
+      throw new ParamsError(
+        "Algum produto não tem estoque suficiente ou valor inválido!"
+      );
 
     const id = this.idGenerator.generate();
     const productsOrderWithID = this.validateProducts.structuredProducts(
