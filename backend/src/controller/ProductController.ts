@@ -10,7 +10,7 @@ export class ProductController {
       const result = await this.productBusiness.getAllProducts();
 
       res
-        .status(201)
+        .status(200)
         .send({ message: "Produtos coletados com Sucesso!", data: result });
     } catch (error: any) {
       if (error instanceof BaseError)

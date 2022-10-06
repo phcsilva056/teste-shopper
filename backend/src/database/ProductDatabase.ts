@@ -4,7 +4,7 @@ import { BaseDatabase } from "./BaseDatabase";
 export class ProductDatabase extends BaseDatabase {
   public static TABLE_PRODUCT = "Shopper_Case_Product";
 
-  public productDBModel = (product: Product): IProductDB => {
+  private productDBModel = (product: Product): IProductDB => {
     const productDB: IProductDB = {
       id: product.getId(),
       name: product.getName(),
