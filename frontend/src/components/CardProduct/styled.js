@@ -37,3 +37,9 @@ export const Price = styled.p`
 export const ButtonAdd = styled(ButtonCart)`
   width: 100%;
 `;
+
+export const ButtonSoldOff = styled(ButtonCart)`
+  background-color: #d9d9d9;
+  color: #111111;
+  width: 100%;
+`;
