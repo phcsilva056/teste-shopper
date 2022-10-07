@@ -6,16 +6,6 @@ export const Container = styled.main`
   flex-grow: 1;
 `;
 
-export const Title = styled.h1`
-flex-grow: 1;
-text-align: center;
-`
-
-export const DivSpace = styled.span`
-  height: 2rem;
-  flex-grow: 1;
-`;
-
 export const BoxCards = styled.div`
   display: flex;
   flex-grow: 1;

@@ -3,8 +3,8 @@ import { Base_URL } from "../constants/baseURL";
 
 const GetProducts = async () => {
   try {
-    const products = await axios.get(`${Base_URL}/products`);
-    return { success: true, products };
+    const {data} = await axios.get(`${Base_URL}/product`);
+    return { success: true, data };
   } catch (error) {
     return {
       success: false,

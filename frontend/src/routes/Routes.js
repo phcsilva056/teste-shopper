@@ -4,14 +4,36 @@ import CartPage from "../pages/CartPage/CartPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
 import StockPage from "../pages/StockPage/StockPage";
+import GlobalState from "../global/GlobalState";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<OrderPage />} />
-        <Route path="/stock" element={<StockPage />} />
-        <Route path="/cart" element={<CartPage />} />
+        <Route
+          index
+          element={
+            <GlobalState>
+              <OrderPage />
+            </GlobalState>
+          }
+        />
+        <Route
+          path="/stock"
+          element={
+            <GlobalState>
+              <StockPage />
+            </GlobalState>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <GlobalState>
+              <CartPage />
+            </GlobalState>
+          }
+        />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

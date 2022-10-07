@@ -36,10 +36,12 @@ export const Price = styled.p`
 
 export const ButtonAdd = styled(ButtonCart)`
   width: 100%;
+  cursor: pointer;
 `;
 
 export const ButtonSoldOff = styled(ButtonCart)`
   background-color: #d9d9d9;
   color: #111111;
+  cursor: not-allowed;
   width: 100%;
 `;
