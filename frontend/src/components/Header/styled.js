@@ -4,7 +4,7 @@ export const ContainerHeader = styled.header`
   box-shadow: #f5f7f9 0px 8px 20px 0px;
   display: flex;
   flex-direction: column;
-  height: 78px;
+  height: 5rem;
   position: sticky;
   width: 100%;
 `;
