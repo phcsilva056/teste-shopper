@@ -22,7 +22,7 @@ export const DivHeader = styled.div`
 `;
 
 export const ImgLogo = styled.img`
-  height: 26px;
+  height: 2rem;
 `;
 
 export const Divisor = styled.span`
@@ -48,7 +48,7 @@ export const ButtonNormal = styled.button`
 export const ButtonCart = styled.button`
   background-color: #2da77a;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 700;

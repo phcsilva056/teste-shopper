@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 export default function ErrorPage() {
   return (
     <>
-      <Header />
+      <Header page={"error"}/>
       ErrorPage
     </>
   );
