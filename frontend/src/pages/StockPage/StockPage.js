@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import * as Style from "./styled";
@@ -7,7 +7,25 @@ import TableStock from "../../components/TableStock/TableStock";
 import { GlobalContext } from "../../global/GlobalContext";
 
 export default function StockPage() {
-  const {data} = useContext(GlobalContext)
+  const { data } = useContext(GlobalContext);
+  const [products, setProducts] = useState(undefined);
+  const [count, setCount] = useState(0);
+
+  const filterBy = (name) => {
+    let list = [...products];
+    list = list?.sort((a, b) => {
+      return count % 2
+        ? a[name] > b[name] ? 1 : a[name] < b[name] ? -1 : 0
+        : a[name] < b[name] ? 1 : a[name] > b[name] ? -1 : 0;
+    });
+    setProducts(list);
+    setCount(count + 1);
+  };
+
+  if (data && !products) {
+    setProducts(data);
+  }
+
   return (
     <>
       <Header page={"stock"} />
@@ -17,12 +35,18 @@ export default function StockPage() {
         <GenStyle.DivSpace />
         <Style.Table>
           <GenStyle.LineTable>
-            <Style.CellTableTitle>Produto</Style.CellTableTitle>
-            <Style.CellTableTitle>Preço unitário</Style.CellTableTitle>
-            <Style.CellTableTitle>Quantidade disponível</Style.CellTableTitle>
+            <Style.CellTableTitle onClick={() => filterBy("name")}>
+              Produto
+            </Style.CellTableTitle>
+            <Style.CellTableTitle onClick={() => filterBy("price")}>
+              Preço unitário
+            </Style.CellTableTitle>
+            <Style.CellTableTitle onClick={() => filterBy("qty_stock")}>
+              Quantidade disponível
+            </Style.CellTableTitle>
           </GenStyle.LineTable>
-          {data &&
-            data.map((product) => {
+          {products &&
+            products.map((product) => {
               return <TableStock product={product} key={product.id} />;
             })}
         </Style.Table>

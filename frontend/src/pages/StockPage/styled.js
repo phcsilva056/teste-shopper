@@ -15,6 +15,7 @@ export const Table = styled.table`
 `;
 
 export const CellTableTitle = styled.th`
+  cursor: pointer;
   padding: 1rem 0.2rem;
   text-align: center;
-`
+`;

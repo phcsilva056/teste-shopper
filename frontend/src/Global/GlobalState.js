@@ -9,7 +9,6 @@ export default function GlobalState({ children }) {
   useEffect(() => {
     const getData = async () => {
       const result = await GetProducts();
-      console.log(result);
       setData(result.success? result.data.data : undefined);
     };
     getData();

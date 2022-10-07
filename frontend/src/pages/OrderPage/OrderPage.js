@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import * as Style from "./styled";
 import * as GenStyle from "../../global/GeneralStyled";
-import { data } from "../../constants/dataMock";
 import CardProduct from "../../components/CardProduct/CardProduct";
+import { GlobalContext } from "../../global/GlobalContext";
 
 export default function OrderPage() {
+  const { data } = useContext(GlobalContext);
   return (
     <>
       <Header />
