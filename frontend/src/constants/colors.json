@@ -1,0 +1,12 @@
+{  
+  "green": {
+    "light": "#e8f9f3",
+    "normal": "#2da77a",
+    "dark": "#10453b"
+  },
+  "blue": {
+    "light": "#3d3d5e",
+    "normal": "#002964",
+    "dark": "#050516"
+  }  
+}

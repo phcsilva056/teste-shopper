@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 
-export default function OrderPage() {
+export default function StockPage() {
   return (
     <>
       <Header />
