@@ -4,7 +4,6 @@ import * as Style from "./styled";
 
 export default function CardProduct({ product }) {
   const { qty_stock, name, price } = product;
-  console.log(product);
   return (
     <Style.ContainerCard>
       <Style.Name>{name}</Style.Name>
