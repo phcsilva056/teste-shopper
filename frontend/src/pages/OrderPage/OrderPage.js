@@ -1,25 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import * as Style from "./styled";
-import { data } from "../../constants/dataMock";
+import * as GenStyle from "../../global/GeneralStyled";
 import CardProduct from "../../components/CardProduct/CardProduct";
+import { GlobalContext } from "../../global/GlobalContext";
 
 export default function OrderPage() {
+  const { data } = useContext(GlobalContext);
   return (
     <>
       <Header />
       <Style.Container>
-        <Style.DivSpace />
-        <Style.Title>Lista de Produtos</Style.Title>
-        <Style.DivSpace />
+        <GenStyle.DivSpace />
+        <GenStyle.Title>Lista de Produtos</GenStyle.Title>
+        <GenStyle.DivSpace />
         <Style.BoxCards>
           {data &&
             data.map((item) => {
               return <CardProduct product={item} key={item.id} />;
             })}
         </Style.BoxCards>
-      <Style.DivSpace />
+        <GenStyle.DivSpace />
       </Style.Container>
       <Footer />
     </>

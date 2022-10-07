@@ -41,6 +41,7 @@ export const NavHeader = styled.nav`
 export const ButtonNormal = styled.button`
   background-color: unset;
   border: none;
+  cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
 `;
@@ -49,6 +50,7 @@ export const ButtonCart = styled.button`
   background-color: #2da77a;
   border: none;
   border-radius: 0.8rem;
+  cursor: pointer;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 700;
