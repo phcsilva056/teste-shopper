@@ -1,0 +1,1 @@
+export const Base_URL = "https://shopper-teste.herokuapp.com"
