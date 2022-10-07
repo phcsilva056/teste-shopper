@@ -1,0 +1,86 @@
+export const data = [
+  {
+    id: "29",
+    name: "PRODUTO SEM ESTOQUE",
+    price: 2.59,
+    qty_stock: 0,
+  },
+  {
+    id: "2559",
+    name: "PRODUTO COM 1 NO ESTOQUE",
+    price: 22.59,
+    qty_stock: 1,
+  },
+  {
+    id: "16",
+    name: "AZEITE  PORTUGUÊS EXTRA VIRGEM GALLO 500ML",
+    price: 20.49,
+    qty_stock: 158,
+  },
+  {
+    id: "18",
+    name: "BEBIDA ENERGÉTICA VIBE 2L",
+    price: 8.99,
+    qty_stock: 659,
+  },
+  {
+    id: "19",
+    name: "ENERGÉTICO RED BULL ENERGY DRINK 250ML",
+    price: 7.29,
+    qty_stock: 909,
+  },
+  {
+    id: "20",
+    name: "ENERGÉTICO RED BULL ENERGY DRINK 355ML",
+    price: 10.79,
+    qty_stock: 159,
+  },
+  {
+    id: "22",
+    name: "ENERGÉTICO RED BULL ENERGY DRINK SEM AÇÚCAR 250ML",
+    price: 7.49,
+    qty_stock: 659,
+  },
+  {
+    id: "23",
+    name: "ÁGUA MINERAL BONAFONT SEM GÁS 1.5L",
+    price: 2.39,
+    qty_stock: 909,
+  },
+  {
+    id: "24",
+    name: "FILME DE PVC WYDA 28CMX15M",
+    price: 3.99,
+    qty_stock: 160,
+  },
+  {
+    id: "25",
+    name: "FILME DE PVC PRATSY 15M",
+    price: 4.39,
+    qty_stock: 410,
+  },
+  {
+    id: "27",
+    name: "ÁGUA MINERAL SEM GÁS MINALBA 1.5L",
+    price: 2.29,
+    qty_stock: 910,
+  },
+  {
+    id: "28",
+    name: "GUARDANAPO GRAND HOTEL SCOTT 24X24CM C/ 50UN",
+    price: 4.39,
+    qty_stock: 160,
+  },
+  {
+    id: "33",
+    name: "GUARDANAPO FOLHA DUPLA SNOB 23.5X23.5CM C/ 50UN",
+    price: 4.25,
+    qty_stock: 411,
+  },
+  {
+    id: "34",
+    name: "GUARDANAPO FOLHA SIMPLES SNOB 24X22CM C/ 50UN",
+    price: 2.19,
+    qty_stock: 661,
+  },
+];

@@ -14,19 +14,27 @@ export default function Header({ page = undefined }) {
         <Style.ImgLogo src={logo} />
         <Style.Divisor />
         <Style.NavHeader>
-          {!page ? (
-            <Style.ButtonNormal onClick={() => goToPage(navigate, "/stock")}>
-              Estoque
-            </Style.ButtonNormal>
-          ) : (
-            <Style.ButtonNormal onClick={() => goToPage(navigate, "/")}>
-              Fazer Pedidos
-            </Style.ButtonNormal>
-          )}
-          <Style.Divisor />
-          {page !== "error" && (
+          {(!page || page === "cart") && (
             <>
-              <Style.ButtonCart>Carrinho</Style.ButtonCart>
+              <Style.ButtonNormal onClick={() => goToPage(navigate, "/stock")}>
+                Estoque
+              </Style.ButtonNormal>
+              <Style.Divisor />
+            </>
+          )}
+          {page && (
+            <>
+              <Style.ButtonNormal onClick={() => goToPage(navigate, "/")}>
+                Fazer Pedidos
+              </Style.ButtonNormal>
+              <Style.Divisor />
+            </>
+          )}
+          {page !== "error" && page !== "cart" && (
+            <>
+              <Style.ButtonCart onClick={() => goToPage(navigate, "/cart")}>
+                Carrinho
+              </Style.ButtonCart>
               <Style.Divisor />
             </>
           )}
