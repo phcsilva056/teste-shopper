@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CartPage from "../pages/CartPage/CartPage";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ProductsPage from "../pages/ProductsPage/ProductsPage";
 import StockPage from "../pages/StockPage/StockPage";
 import GlobalState from "../global/GlobalState";
 
@@ -27,10 +27,10 @@ export default function Router() {
           }
         />
         <Route
-          path="/cart"
+          path="/products"
           element={
             <GlobalState>
-              <CartPage />
+              <ProductsPage />
             </GlobalState>
           }
         />

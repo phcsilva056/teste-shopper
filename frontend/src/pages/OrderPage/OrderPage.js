@@ -1,55 +1,32 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import * as Style from "./styled";
 import * as GenStyle from "../../global/GeneralStyled";
-import ordenacao from "../../assets/ordenacao.png";
-import CardProduct from "../../components/CardProduct/CardProduct";
-import { GlobalContext } from "../../global/GlobalContext";
-import { filterOrderBy } from "../../services/filterOrderBy";
 
 export default function OrderPage() {
-  const { data } = useContext(GlobalContext);
-  const [products, setProducts] = useState(undefined);
-  const [input, setInput] = useState("");
-  const [count, setCount] = useState(0);
-
-  const filterBy = (name) => {
-    const list = filterOrderBy(products, name, count);
-    setProducts(list);
-    setCount(count + 1);
-  };
-
-  if (data && !products) {
-    setProducts(data);
-  }
-
   return (
     <>
-      <Header />
+      <Header page={"order"} />
       <Style.Container>
         <GenStyle.DivSpace />
-        <GenStyle.Title>Lista de Produtos</GenStyle.Title>
+        <GenStyle.Title>Formulário de Pedidos</GenStyle.Title>
         <GenStyle.DivSpace />
-        <Style.BoxFilters>
-          <Style.InputSearch
-            placeholder="Buscar"
-            onChange={(e) => setInput(e.target.value)}
-            value={input}
-          />
-          <Style.OrderBy src={ordenacao} onClick={() => filterBy("price")} />
-        </Style.BoxFilters>
-        <GenStyle.DivSpace />
-        <Style.BoxCards>
-          {products &&
-            products
-              .filter((item) =>
-                item.name.toLowerCase().includes(input.toLowerCase())
-              )
-              .map((item) => {
-                return <CardProduct product={item} key={item.id} />;
-              })}
-        </Style.BoxCards>
+        <GenStyle.Table>
+          <thead>
+            <GenStyle.LineTable>
+              <Style.CellTitle>Produto</Style.CellTitle>
+              <Style.CellTitle>Preço</Style.CellTitle>
+              <Style.CellTitle>Quantidade</Style.CellTitle>
+            </GenStyle.LineTable>
+          </thead>
+          <tbody>
+            {/* {products &&
+            products.map((product) => {
+              return <TableStock product={product} key={product.id} />;
+            })} */}
+          </tbody>
+        </GenStyle.Table>
         <GenStyle.DivSpace />
       </Style.Container>
       <Footer />

@@ -30,21 +30,25 @@ export default function StockPage() {
         <GenStyle.Title>Lista de Estoque</GenStyle.Title>
         <GenStyle.DivSpace />
         <GenStyle.Table>
-          <GenStyle.LineTable>
-            <GenStyle.CellTableTitle onClick={() => filterBy("name")}>
-              Produto
-            </GenStyle.CellTableTitle>
-            <GenStyle.CellTableTitle onClick={() => filterBy("price")}>
-              Preço
-            </GenStyle.CellTableTitle>
-            <GenStyle.CellTableTitle onClick={() => filterBy("qty_stock")}>
-              Quantidade
-            </GenStyle.CellTableTitle>
-          </GenStyle.LineTable>
-          {products &&
-            products.map((product) => {
-              return <TableStock product={product} key={product.id} />;
-            })}
+          <thead>
+            <GenStyle.LineTable>
+              <GenStyle.CellTableTitle onClick={() => filterBy("name")}>
+                Produto
+              </GenStyle.CellTableTitle>
+              <GenStyle.CellTableTitle onClick={() => filterBy("price")}>
+                Preço
+              </GenStyle.CellTableTitle>
+              <GenStyle.CellTableTitle onClick={() => filterBy("qty_stock")}>
+                Quantidade
+              </GenStyle.CellTableTitle>
+            </GenStyle.LineTable>
+          </thead>
+          <tbody>
+            {products &&
+              products.map((product) => {
+                return <TableStock product={product} key={product.id} />;
+              })}
+          </tbody>
         </GenStyle.Table>
         <GenStyle.DivSpace />
       </Style.Container>

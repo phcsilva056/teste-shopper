@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonCart } from "../Header/styled";
+import { ButtonOrder } from "../Header/styled";
 
 export const ContainerCard = styled.div`
   border-radius: 0.6rem;
@@ -34,7 +34,7 @@ export const Price = styled.p`
   text-align: end;
 `;
 
-export const ButtonAdd = styled(ButtonCart)`
+export const ButtonAdd = styled(ButtonOrder)`
   width: 100%;
   cursor: pointer;
   :active {
@@ -43,7 +43,7 @@ export const ButtonAdd = styled(ButtonCart)`
   }
 `;
 
-export const ButtonSoldOff = styled(ButtonCart)`
+export const ButtonSoldOff = styled(ButtonOrder)`
   background-color: #d9d9d9;
   color: #111111;
   cursor: not-allowed;

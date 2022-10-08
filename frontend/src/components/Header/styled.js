@@ -7,6 +7,9 @@ export const ContainerHeader = styled.header`
   height: 5rem;
   position: sticky;
   width: 100%;
+  @media screen and (max-width: 580px) {
+    height: 8rem;
+  }
 `;
 
 export const LineHeader = styled.span`
@@ -19,6 +22,10 @@ export const DivHeader = styled.div`
   align-items: center;
   display: flex;
   flex-grow: 1;
+  @media screen and (max-width: 580px) {
+    flex-direction: column;    
+    justify-content: space-around; 
+  }
 `;
 
 export const ImgLogo = styled.img`
@@ -28,6 +35,10 @@ export const ImgLogo = styled.img`
 export const Divisor = styled.span`
   height: 100%;
   width: 2rem;
+  @media screen and (max-width: 580px) {
+    width: 0;
+    height: 0;
+  }
 `;
 
 export const NavHeader = styled.nav`
@@ -36,6 +47,11 @@ export const NavHeader = styled.nav`
   flex-grow: 1;
   justify-content: flex-end;
   height: 100%;
+  @media screen and (max-width: 580px) {
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const ButtonNormal = styled.button`
@@ -44,9 +60,12 @@ export const ButtonNormal = styled.button`
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
+  :hover{
+    text-decoration: underline;
+  }
 `;
 
-export const ButtonCart = styled.button`
+export const ButtonOrder = styled.button`
   background-color: #2da77a;
   border: none;
   border-radius: 0.8rem;
