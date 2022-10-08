@@ -25,7 +25,7 @@ export default function Header({ page = undefined }) {
           {page && (
             <>
               <Style.ButtonNormal onClick={() => goToPage(navigate, "/")}>
-                Fazer Pedidos
+                Produtos
               </Style.ButtonNormal>
               <Style.Divisor />
             </>

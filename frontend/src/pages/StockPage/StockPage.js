@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import * as Style from "./styled";
 import * as GenStyle from "../../global/GeneralStyled";
 import TableStock from "../../components/TableStock/TableStock";
 import { GlobalContext } from "../../global/GlobalContext";
+import { filterOrderBy } from "../../services/filterOrderBy";
 
 export default function StockPage() {
   const { data } = useContext(GlobalContext);
@@ -12,12 +13,7 @@ export default function StockPage() {
   const [count, setCount] = useState(0);
 
   const filterBy = (name) => {
-    let list = [...products];
-    list = list?.sort((a, b) => {
-      return count % 2
-        ? a[name] > b[name] ? 1 : a[name] < b[name] ? -1 : 0
-        : a[name] < b[name] ? 1 : a[name] > b[name] ? -1 : 0;
-    });
+    const list = filterOrderBy(products, name, count);
     setProducts(list);
     setCount(count + 1);
   };
@@ -33,23 +29,23 @@ export default function StockPage() {
         <GenStyle.DivSpace />
         <GenStyle.Title>Lista de Estoque</GenStyle.Title>
         <GenStyle.DivSpace />
-        <Style.Table>
+        <GenStyle.Table>
           <GenStyle.LineTable>
-            <Style.CellTableTitle onClick={() => filterBy("name")}>
+            <GenStyle.CellTableTitle onClick={() => filterBy("name")}>
               Produto
-            </Style.CellTableTitle>
-            <Style.CellTableTitle onClick={() => filterBy("price")}>
-              Preço unitário
-            </Style.CellTableTitle>
-            <Style.CellTableTitle onClick={() => filterBy("qty_stock")}>
-              Quantidade disponível
-            </Style.CellTableTitle>
+            </GenStyle.CellTableTitle>
+            <GenStyle.CellTableTitle onClick={() => filterBy("price")}>
+              Preço
+            </GenStyle.CellTableTitle>
+            <GenStyle.CellTableTitle onClick={() => filterBy("qty_stock")}>
+              Quantidade
+            </GenStyle.CellTableTitle>
           </GenStyle.LineTable>
           {products &&
             products.map((product) => {
               return <TableStock product={product} key={product.id} />;
             })}
-        </Style.Table>
+        </GenStyle.Table>
         <GenStyle.DivSpace />
       </Style.Container>
       <Footer />
