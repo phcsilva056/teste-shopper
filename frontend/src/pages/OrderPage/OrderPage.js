@@ -1,13 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import * as Style from "./styled";
 import * as GenStyle from "../../global/GeneralStyled";
+import ordenacao from "../../assets/ordenacao.png";
 import CardProduct from "../../components/CardProduct/CardProduct";
 import { GlobalContext } from "../../global/GlobalContext";
+import { filterOrderBy } from "../../services/filterOrderBy";
 
 export default function OrderPage() {
   const { data } = useContext(GlobalContext);
+  const [products, setProducts] = useState(undefined);
+  const [input, setInput] = useState("");
+  const [count, setCount] = useState(0);
+
+  const filterBy = (name) => {
+    const list = filterOrderBy(products, name, count);
+    setProducts(list);
+    setCount(count + 1);
+  };
+
+  if (data && !products) {
+    setProducts(data);
+  }
+
   return (
     <>
       <Header />
@@ -15,11 +31,24 @@ export default function OrderPage() {
         <GenStyle.DivSpace />
         <GenStyle.Title>Lista de Produtos</GenStyle.Title>
         <GenStyle.DivSpace />
+        <Style.BoxFilters>
+          <Style.InputSearch
+            placeholder="Buscar"
+            onChange={(e) => setInput(e.target.value)}
+            value={input}
+          />
+          <Style.OrderBy src={ordenacao} onClick={() => filterBy("price")} />
+        </Style.BoxFilters>
+        <GenStyle.DivSpace />
         <Style.BoxCards>
-          {data &&
-            data.map((item) => {
-              return <CardProduct product={item} key={item.id} />;
-            })}
+          {products &&
+            products
+              .filter((item) =>
+                item.name.toLowerCase().includes(input.toLowerCase())
+              )
+              .map((item) => {
+                return <CardProduct product={item} key={item.id} />;
+              })}
         </Style.BoxCards>
         <GenStyle.DivSpace />
       </Style.Container>

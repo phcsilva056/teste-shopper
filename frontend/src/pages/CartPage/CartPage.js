@@ -11,7 +11,19 @@ export default function CartPage() {
       <Style.Container>
         <GenStyle.DivSpace />
         <GenStyle.Title>Carrinho</GenStyle.Title>
-        <GenStyle.DivSpace />        
+        <GenStyle.DivSpace />
+        <GenStyle.Table>
+          <GenStyle.LineTable>
+            <Style.CellTitle>Produto</Style.CellTitle>
+            <Style.CellTitle>Preço</Style.CellTitle>
+            <Style.CellTitle>Quantidade</Style.CellTitle>
+          </GenStyle.LineTable>
+          {/* {products &&
+            products.map((product) => {
+              return <TableStock product={product} key={product.id} />;
+            })} */}
+        </GenStyle.Table>
+        <GenStyle.DivSpace />
       </Style.Container>
       <Footer />
     </>

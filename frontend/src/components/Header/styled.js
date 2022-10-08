@@ -55,4 +55,8 @@ export const ButtonCart = styled.button`
   font-size: 1rem;
   font-weight: 700;
   padding: 0.7rem 1.2rem;
+  :active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
 `;
