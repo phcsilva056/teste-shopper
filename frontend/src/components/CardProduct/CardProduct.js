@@ -2,7 +2,7 @@ import React from "react";
 import { formatBRL } from "../../constants/FormatBRL";
 import * as Style from "./styled";
 
-export default function CardProduct({ product }) {
+export default function CardProduct({ product, orderList, setOrderList }) {
   const { qty_stock, name, price } = product;
   return (
     <Style.ContainerCard>
