@@ -14,7 +14,7 @@ export default function Header({ page = undefined }) {
         <Style.ImgLogo src={logo} />
         <Style.Divisor />
         <Style.NavHeader>
-          {(!page || page === "cart") && (
+          {(!page || page === "order") && (
             <>
               <Style.ButtonNormal onClick={() => goToPage(navigate, "/stock")}>
                 Estoque
@@ -24,17 +24,17 @@ export default function Header({ page = undefined }) {
           )}
           {page && (
             <>
-              <Style.ButtonNormal onClick={() => goToPage(navigate, "/")}>
+              <Style.ButtonNormal onClick={() => goToPage(navigate, "/products")}>
                 Produtos
               </Style.ButtonNormal>
               <Style.Divisor />
             </>
           )}
-          {page !== "error" && page !== "cart" && (
+          {page !== "error" && page !== "order" && (
             <>
-              <Style.ButtonCart onClick={() => goToPage(navigate, "/cart")}>
-                Carrinho
-              </Style.ButtonCart>
+              <Style.ButtonOrder onClick={() => goToPage(navigate, "/")}>
+                Fazer Pedido
+              </Style.ButtonOrder>
               <Style.Divisor />
             </>
           )}
