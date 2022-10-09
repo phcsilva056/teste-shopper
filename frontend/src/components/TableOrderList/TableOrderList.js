@@ -7,8 +7,7 @@ export default function TableOrderList({ product, orderList, setOrderList }) {
   const { id, name, price, amount, qty_stock } = product;
   const find = orderList.findIndex((item) => item.id_product === id);
 
-  const onClickAdd = (e) => {
-    console.log(e);
+  const onClickAdd = () => {
     const list = [...orderList];
 
     if (find >= 0) list[find].amount++;

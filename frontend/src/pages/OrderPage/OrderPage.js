@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import * as Style from "./styled";
@@ -7,10 +7,13 @@ import { formatBRL } from "../../constants/FormatBRL";
 import { GlobalContext } from "../../global/GlobalContext";
 import TableOrderList from "../../components/TableOrderList/TableOrderList";
 import PostOrder from "../../services/PostOrder";
+import { filterOrderBy } from "../../services/filterOrderBy";
 
 export default function OrderPage() {
   const { data, orderList, setOrderList, form, onChange, clearForm } =
     useContext(GlobalContext);
+  const [products, setProducts] = useState(undefined);
+  const [count, setCount] = useState(0);
   const today = new Date().toISOString().slice(0, 10);
 
   const onSubmitOrder = async (event) => {
@@ -36,9 +39,9 @@ export default function OrderPage() {
   };
 
   const calculatedTotal = () => {
-    if (orderList.length) {
+    if (orderList?.length) {
       const resultTotal = orderList.reduce((total, item) => {
-        const product = data.filter(
+        const product = data?.filter(
           (product) => product.id === item.id_product
         )[0];
         return product?.price * item.amount + total;
@@ -47,6 +50,28 @@ export default function OrderPage() {
     }
     return 0;
   };
+
+  const filterBy = (name) => {
+    const list = filterOrderBy(products, name, count);
+    setProducts(list);
+    setCount(count + 1);
+  };
+
+  useEffect(() => {
+    if (data) {
+      const list = orderList.map((product) => {
+        const index = data.findIndex(({ id }) => id === product.id_product);
+        return {
+          id: product.id_product,
+          name: data[index].name,
+          price: data[index].price,
+          amount: product.amount,
+          qty_stock: data[index].qty_stock,
+        };
+      });
+      setProducts(list);
+    }
+  }, [data, orderList]);
 
   const total = calculatedTotal();
 
@@ -79,29 +104,32 @@ export default function OrderPage() {
           <Style.TableOrder>
             <thead>
               <GenStyle.LineTable>
-                <GenStyle.CellTableTitle>Produto</GenStyle.CellTableTitle>
-                <GenStyle.CellTableTitle>Preço</GenStyle.CellTableTitle>
-                <GenStyle.CellTableTitle>Quantidade</GenStyle.CellTableTitle>
+                <GenStyle.CellTableTitle onClick={() => filterBy("name")}>
+                  Produto
+                </GenStyle.CellTableTitle>
+                <GenStyle.CellTableTitle onClick={() => filterBy("price")}>
+                  Preço
+                </GenStyle.CellTableTitle>
+                <GenStyle.CellTableTitle onClick={() => filterBy("amount")}>
+                  Quantidade
+                </GenStyle.CellTableTitle>
               </GenStyle.LineTable>
             </thead>
             <tbody>
-              {orderList.length ? (
-                orderList.map((product) => {
-                  const index = data.findIndex(
-                    ({ id }) => id === product.id_product
-                  );
+              {products?.length ? (
+                products.map(({ id, name, price, amount, qty_stock }) => {
                   return (
                     <TableOrderList
                       orderList={orderList}
                       setOrderList={setOrderList}
                       product={{
-                        id: product.id_product,
-                        name: data[index].name,
-                        price: data[index].price,
-                        amount: product.amount,
-                        qty_stock: data[index].qty_stock,
+                        id,
+                        name,
+                        price,
+                        amount,
+                        qty_stock,
                       }}
-                      key={product.id_product}
+                      key={id}
                     />
                   );
                 })
