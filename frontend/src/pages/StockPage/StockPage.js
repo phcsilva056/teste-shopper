@@ -18,9 +18,7 @@ export default function StockPage() {
     setCount(count + 1);
   };
 
-  if (data && !products) {
-    setProducts(data);
-  }
+  if (data && !products) setProducts(data);
 
   return (
     <>

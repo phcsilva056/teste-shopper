@@ -24,7 +24,9 @@ export default function Header({ page = undefined }) {
           )}
           {page && (
             <>
-              <Style.ButtonNormal onClick={() => goToPage(navigate, "/products")}>
+              <Style.ButtonNormal
+                onClick={() => goToPage(navigate, "/products")}
+              >
                 Produtos
               </Style.ButtonNormal>
               <Style.Divisor />

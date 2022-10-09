@@ -10,7 +10,7 @@ import { filterOrderBy } from "../../services/filterOrderBy";
 import { convertVowels } from "../../services/convertVowels";
 
 export default function ProductsPage() {
-  const { data } = useContext(GlobalContext);
+  const { data, orderList, setOrderList } = useContext(GlobalContext);
   const [products, setProducts] = useState(undefined);
   const [input, setInput] = useState("");
   const [count, setCount] = useState(0);
@@ -21,9 +21,7 @@ export default function ProductsPage() {
     setCount(count + 1);
   };
 
-  if (data && !products) {
-    setProducts(data);
-  }
+  if (data && !products) setProducts(data);
 
   return (
     <>
@@ -46,13 +44,20 @@ export default function ProductsPage() {
         <Style.BoxCards>
           {products &&
             products
-              .filter((item) =>
-                convertVowels(item.name)
-                  .toLowerCase()
-                  .includes(convertVowels(input))
+              .filter(
+                (item) =>
+                  convertVowels(item.name).includes(convertVowels(input)) ||
+                  convertVowels(item.name) === convertVowels(input)
               )
               .map((item) => {
-                return <CardProduct product={item} key={item.id} />;
+                return (
+                  <CardProduct
+                    product={item}
+                    key={item.id}
+                    orderList={orderList}
+                    setOrderList={setOrderList}
+                  />
+                );
               })}
         </Style.BoxCards>
         <GenStyle.DivSpace />

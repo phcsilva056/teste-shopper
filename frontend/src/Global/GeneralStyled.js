@@ -16,7 +16,8 @@ export const LineTable = styled.tr`
 export const Table = styled.table`
   background-color: #10453b;
   margin: 0 auto;
-  max-width: 90%;
+  width: 52rem;
+  max-width: 98%;
   font-size: 1rem;
   font-weight: 600;
   @media screen and (max-width: 580px) {
