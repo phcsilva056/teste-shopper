@@ -5,6 +5,7 @@ import { Input, LineTable, Table } from "../../global/GeneralStyled";
 export const Container = styled.main`
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex-grow: 1;
 `;
 
@@ -13,7 +14,8 @@ export const InputDate = styled(Input)`
 `;
 
 export const InputName = styled(Input)`
-  width: 28rem;
+  width: 90%;
+  max-width: 28rem;
 `;
 
 export const Label = styled.label`
@@ -22,7 +24,8 @@ export const Label = styled.label`
 `;
 
 export const TableOrder = styled(Table)`
-  width: 28rem;
+  width: 52rem;
+  max-width: 98%;
 `;
 
 export const Empty = styled.td.attrs({ colSpan: 3 })`
@@ -32,7 +35,13 @@ export const Empty = styled.td.attrs({ colSpan: 3 })`
   text-align: center;
 `;
 
-export const TdTotal = styled.td.attrs({ colSpan: 2 })`
+export const TdTotalTitle = styled.td.attrs({ colSpan: 3 })`
+  font-size: 1.2rem;
+  text-align: center;
+`;
+export const TdTotal = styled.td.attrs({ colSpan: 3 })`
+  background-color: #2da77a;
+  color: #111111;
   font-size: 1.2rem;
   text-align: center;
 `;
@@ -49,8 +58,6 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 0.4rem;
   justify-content: center;
-  margin: 0 auto;
-  max-width: 90%;
   width: 100%;
 `;
 

@@ -21,9 +21,7 @@ export default function ProductsPage() {
     setCount(count + 1);
   };
 
-  if (data && !products) {
-    setProducts(data);
-  }
+  if (data && !products) setProducts(data);
 
   return (
     <>
@@ -46,10 +44,10 @@ export default function ProductsPage() {
         <Style.BoxCards>
           {products &&
             products
-              .filter((item) =>
-                convertVowels(item.name)
-                  .toLowerCase()
-                  .includes(convertVowels(input))
+              .filter(
+                (item) =>
+                  convertVowels(item.name).includes(convertVowels(input)) ||
+                  convertVowels(item.name) === convertVowels(input)
               )
               .map((item) => {
                 return (

@@ -13,6 +13,26 @@ export const ContainerCard = styled.div`
   flex-grow: 1;
   width: 22rem;
   max-width: 22rem;
+  position: relative;
+`;
+
+export const DivAmountProduct = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+`;
+
+export const AmountProduct = styled.p`
+  background-color: #3d3d5e;
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.1rem 1rem;
 `;
 
 export const Name = styled.p`
@@ -32,6 +52,21 @@ export const Price = styled.p`
   font-size: 1.6rem;
   font-weight: 500;
   text-align: end;
+`;
+
+export const DivButtons = styled.div`
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+`;
+
+export const ButtonRemove = styled(ButtonOrder)`
+  background-color: #a72d37;
+  cursor: pointer;
+  :active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
 `;
 
 export const ButtonAdd = styled(ButtonOrder)`
