@@ -42,7 +42,7 @@
 
 <h2>O que tem no projeto?</h2>
 
-<h2>Frontend</h2>
+<h3 align="center">Frontend</h3>
 
 <h3>Página de Formulário de Pedidos</h3>
 
@@ -82,10 +82,10 @@
 
 <div align="center">
     <img width="70%"
-        src="https://user-images.githubusercontent.com/104540624/194858384-fab6ce52-323b-48b8-98ac-e351b5f918a2.png" />
+        src="https://user-images.githubusercontent.com/104540624/194868399-e379726f-1548-4011-b106-a73dd049ea0a.png" />
 </div>
 
-<h2>Backend</h2>
+<h3 align="center">Backend</h3>
 
 <p>Foi criado uma API na qual existe duas endpoints, sendo uma para buscar todos os produtos e uma para cadastrar um
     novo pedido, onde é feito validações para não receber valores que estejam faltando ou de produtos que não existem no
