@@ -68,8 +68,8 @@
 
 <p>
     Nessa página existe uma tabela que contem todos os produtos existentes, fornecendo nome, preço unitario e quantidade
-    que ainda tem no estoque, e é possível ordernar a tabela de forma Crescente e Decrescente clicando em "Produto",
-    "Preço" ou "Quantidade" no topo da tabela.
+    que ainda tem no estoque, e é possível ordernar a tabela de forma Crescente e Decrescente clicando em "Produto" ou
+    "Quantidade" no topo da tabela.
 </p>
 
 <div align="center">
