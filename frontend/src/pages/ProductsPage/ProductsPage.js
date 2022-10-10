@@ -8,12 +8,14 @@ import CardProduct from "../../components/CardProduct/CardProduct";
 import { GlobalContext } from "../../global/GlobalContext";
 import { filterOrderBy } from "../../services/filterOrderBy";
 import { convertVowels } from "../../services/convertVowels";
+import Loading from "../../components/Loading/Loading";
 
 export default function ProductsPage() {
   const { data, orderList, setOrderList } = useContext(GlobalContext);
   const [products, setProducts] = useState(undefined);
   const [input, setInput] = useState("");
   const [count, setCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const filterBy = (name) => {
     const list = filterOrderBy(products, name, count);
@@ -21,11 +23,15 @@ export default function ProductsPage() {
     setCount(count + 1);
   };
 
-  if (data && !products) setProducts(data);
+  if (data && !products) {
+    setProducts(data)
+    setIsLoading(false)
+  }
 
   return (
     <>
       <Header />
+      {isLoading && <Loading />}
       <Style.Container>
         <GenStyle.DivSpace />
         <GenStyle.Title>Lista de Produtos</GenStyle.Title>

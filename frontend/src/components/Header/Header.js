@@ -32,7 +32,7 @@ export default function Header({ page = undefined }) {
               <Style.Divisor />
             </>
           )}
-          {page !== "error" && page !== "order" && (
+          {page !== "order" && (
             <>
               <Style.ButtonOrder onClick={() => goToPage(navigate, "/")}>
                 Fazer Pedido
