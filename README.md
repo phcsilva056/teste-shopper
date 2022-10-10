@@ -14,7 +14,7 @@
     de pedido.
 </p>
 
-<h2>Link para Visualização do Projeto</h2>
+<h2>Links dos Deploys</h2>
 
 <h3> Site - Frontend </h3>
 <a href="https://shopper-paulo.surge.sh/">
