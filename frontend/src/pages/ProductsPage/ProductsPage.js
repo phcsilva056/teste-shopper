@@ -59,7 +59,7 @@ export default function ProductsPage() {
           </Style.ButtonOrderBy>
         </Style.BoxFilters>
         <GenStyle.DivSpace />
-        <Style.BoxCards>{products && showCardsProducts}</Style.BoxCards>
+        <Style.BoxCards>{showCardsProducts}</Style.BoxCards>
         <GenStyle.DivSpace />
       </Style.Container>
       <Footer />
