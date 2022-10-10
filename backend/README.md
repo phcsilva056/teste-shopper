@@ -23,6 +23,7 @@
 <h2>Link para Visualização do Projeto</h2>
 
 <h3> API </h3>
+
 <a href="https://shopper-teste.herokuapp.com/">
     https://shopper-teste.herokuapp.com/
 </a>
@@ -45,6 +46,7 @@
 ``` bash
 $ git clone https://github.com/phcsilva056/teste-shopper.git
 ```
+
 <p>Certifique-se de estar dentro da pasta backend, caso não esteja utilize o comando:</p>
 
 ``` bash
@@ -82,6 +84,7 @@ DB_DATABASE = (edite aqui e coloque o nome do banco de dados)
 ``` bash
 $ npm run dev
 ```
+
 <p>Caso seu banco de dados esteja pronto para ser usado e seu .env tenha os valores inseridos, é possível povoar seu
     banco de dados com alguns valores utilizando o migrations:</p>
 
