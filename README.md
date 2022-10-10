@@ -16,14 +16,33 @@
     pedido.
 </p>
 
-<h3>Link para Visualização do Projeto</h3>
+<h2>Link para Visualização do Projeto</h2>
 
 <a href="https://shopper-paulo.surge.sh/">
     https://shopper-paulo.surge.sh/
 </a>
 
-<h2>O que tem no projeto?</h2>
+<h2>Tecnologias utilizadas</h2>
 
+<h3>Frontend</h3>
+<ul>
+    <li>ReactJS</li>
+    <li>Styled Components</li>
+    <li>Axios</li>
+    <li>React Router Dom</li>
+</ul>
+
+<h3>Backend</h3>
+<ul>
+    <li>NodeJS</li>
+    <li>Typescript</li>
+    <li>Knex</li>
+    <li>Express</li>
+    <li>CSV Parser</li>
+    <li>MySQL</li>
+</ul>
+
+<h2>O que tem no projeto?</h2>
 
 <h3>Página de Formulário de Pedidos</h3>
 
@@ -70,6 +89,5 @@
     <img width="70%"
         src="https://user-images.githubusercontent.com/104540624/194858384-fab6ce52-323b-48b8-98ac-e351b5f918a2.png" />
 </div>
-
 
 <h3 align="right"> Feito por: Paulo Henrique </h3>
