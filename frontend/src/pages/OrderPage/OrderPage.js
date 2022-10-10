@@ -159,9 +159,16 @@ export default function OrderPage() {
             </tfoot>
           </Style.TableOrder>
           <GenStyle.DivSpace />
-          <Style.Button type="submit">Finalizar Pedido</Style.Button>
+          <Style.DivButtonsForm>
+            <Style.ButtonClearList
+              onClick={() => setOrderList([])}
+              type="button"
+            >
+              Limpar Lista de Produtos
+            </Style.ButtonClearList>
+            <Style.Button type="submit">Finalizar Pedido</Style.Button>
+          </Style.DivButtonsForm>
         </Style.Form>
-
         <GenStyle.DivSpace />
       </Style.Container>
       <Footer />

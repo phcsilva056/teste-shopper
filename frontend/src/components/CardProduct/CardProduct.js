@@ -7,23 +7,23 @@ export default function CardProduct({ values }) {
   const { id, qty_stock, name, price } = product;
   const exist = orderList.findIndex((item) => item.id_product === id);
 
-  const onClickAdd = () => {
+  const onClickAdd = (amount) => {
     const list = [...orderList];
 
-    if (exist >= 0) list[exist].amount++;
-    else list.push({ id_product: id, amount: 1 });
+    if (exist >= 0) list[exist].amount += amount;
+    else list.push({ id_product: id, amount });
 
     setOrderList(list);
   };
 
-  const onClickRemove = () => {
+  const onClickRemove = (amount) => {
     const list = orderList
       .map((item) => {
         return item.id_product === id
-          ? { ...item, amount: item.amount - 1 }
+          ? { ...item, amount: item.amount - amount }
           : item;
       })
-      .filter((item) => item.amount);
+      .filter((item) => item.amount > 0);
     setOrderList(list);
   };
 
@@ -40,10 +40,26 @@ export default function CardProduct({ values }) {
       <Style.DivPriceButton>
         <Style.DivButtons>
           {exist >= 0 && (
-            <Style.ButtonRemove onClick={onClickRemove}>-1</Style.ButtonRemove>
+            <>
+              <Style.ButtonRemove onClick={() => onClickRemove(10)}>
+                -10
+              </Style.ButtonRemove>
+              <Style.ButtonRemove onClick={() => onClickRemove(1)}>
+                -1
+              </Style.ButtonRemove>
+            </>
           )}
           {qty_stock > amountInList ? (
-            <Style.ButtonAdd onClick={onClickAdd}>Adicionar</Style.ButtonAdd>
+            <>
+              <Style.ButtonAdd onClick={() => onClickAdd(1)}>
+                {exist >= 0 ? "+1" : "Adicionar"}
+              </Style.ButtonAdd>
+              {exist >= 0 && qty_stock >= amountInList + 10 && (
+                <Style.ButtonAdd onClick={() => onClickAdd(10)}>
+                  +10
+                </Style.ButtonAdd>
+              )}
+            </>
           ) : (
             <Style.ButtonSoldOff>Unidades Esgotadas</Style.ButtonSoldOff>
           )}

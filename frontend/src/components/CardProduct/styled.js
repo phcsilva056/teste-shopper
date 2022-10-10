@@ -60,8 +60,8 @@ export const DivButtons = styled.div`
   width: 100%;
 `;
 
-export const ButtonRemove = styled(ButtonOrder)`
-  background-color: #a72d37;
+export const ButtonAdd = styled(ButtonOrder)`
+  width: 100%;
   cursor: pointer;
   :active {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
@@ -69,8 +69,8 @@ export const ButtonRemove = styled(ButtonOrder)`
   }
 `;
 
-export const ButtonAdd = styled(ButtonOrder)`
-  width: 100%;
+export const ButtonRemove = styled(ButtonAdd)`
+  background-color: #a72d37;
   cursor: pointer;
   :active {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,

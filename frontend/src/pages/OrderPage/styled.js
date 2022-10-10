@@ -62,3 +62,14 @@ export const Form = styled.form`
 `;
 
 export const Button = styled(ButtonOrder)``;
+
+export const ButtonClearList = styled(ButtonOrder)`
+  background-color: #a72d37;
+`;
+
+export const DivButtonsForm = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+` 
