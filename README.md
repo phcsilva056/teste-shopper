@@ -101,10 +101,10 @@
 
 <p>Quer ver mais detalhes sobre o Frontend e/ou Backend?</p>
 
-<h3>Frontend</h3>
-<a src="https://github.com/phcsilva056/teste-shopper/blob/main/backend/README.md">https://github.com/phcsilva056/teste-shopper/blob/main/backend/README.md</a>
+<h3><a href="https://github.com/phcsilva056/teste-shopper/tree/main/frontend">Frontend</a></h3>
+<a href="https://github.com/phcsilva056/teste-shopper/tree/main/frontend">https://github.com/phcsilva056/teste-shopper/tree/main/frontend</a>
 
-<h3>Backend</h3>
-<a src="">link</a>
+<h3><a href="https://github.com/phcsilva056/teste-shopper/tree/main/backend">Backend</a></h3>
+<a href="https://github.com/phcsilva056/teste-shopper/tree/main/backend">https://github.com/phcsilva056/teste-shopper/tree/main/backend</a>
 
 <h3 align="right"> Feito por: Paulo Henrique Correa da Silva </h3>
