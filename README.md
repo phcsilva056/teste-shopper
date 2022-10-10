@@ -96,5 +96,15 @@
 <p>Foi criado uma API na qual existe duas endpoints, sendo uma para buscar todos os produtos e uma para cadastrar um
     novo pedido, onde é feito validações para não receber valores que estejam faltando ou de produtos que não existem no
     estoque ou não tem quantidade informada.</p>
+    
+<h2>Para mais detalhes</h2>
+
+<p>Quer ver mais detalhes sobre o Frontend e/ou Backend?</p>
+
+<h3>Frontend</h3>
+<a src="https://github.com/phcsilva056/teste-shopper/blob/main/backend/README.md">https://github.com/phcsilva056/teste-shopper/blob/main/backend/README.md</a>
+
+<h3>Backend</h3>
+<a src="">link</a>
 
 <h3 align="right"> Feito por: Paulo Henrique Correa da Silva </h3>
