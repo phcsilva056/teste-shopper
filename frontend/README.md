@@ -85,7 +85,7 @@ $ npm run start
 
 <strong>Caso queira adicionar seu deploy do backend ao projeto, insira o link base no arquivo baseURL.js que está localizado
     dentro de frontend/src/constants/baseURL.js e lá existe a constante Base_URL, basta substituir pelo seu link da
-    deploy(deixe sem a "/" no final)</strong>
+    deploy(deixe sem a "/" no final).</strong>
 
 <p>Caso queira utilizar e modificar, fique à vontade!</p>
 
