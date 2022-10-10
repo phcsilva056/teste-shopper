@@ -20,7 +20,7 @@
     novo pedido, onde é feito validações para não receber valores que estejam faltando ou de produtos que não existem no
     estoque ou não tem quantidade informada.</p>
 
-<h2>Link de Deploy</h2>
+<h2>Link do Deploy</h2>
 
 <h3> API </h3>
 
