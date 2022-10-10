@@ -92,6 +92,81 @@ $ npm run dev
 $ npm run migrations
 ```
 
+<h2>Como funciona as endpoints?</h2>
+
+<p>Segue uma documentação simplificada do uso das duas endpoints existentes:</p>
+
+> <h2> GET - Get All Products </h2>
+
+### Path URL
+
+```
+{{Base_URL}}/product
+```
+
+### Response
+
+```json
+/* Success */
+{
+    "message": "Produtos coletados com Sucesso!",
+    "data": [
+        {
+            "id": "16",
+            "name": "AZEITE  PORTUGUÊS EXTRA VIRGEM GALLO 500ML",
+            "price": 20.49,
+            "qty_stock": 128
+        },
+        {
+            "id": "18",
+            "name": "BEBIDA ENERGÉTICA VIBE 2L",
+            "price": 8.99,
+            "qty_stock": 633
+        }
+    ]
+}
+
+/* Failed */
+{
+    "message": "Mensagem informando o erro!"
+}
+```
+
+> <h2> POST - Create Order </h2>
+
+### Path URL
+
+```
+{{Base_URL}}/order/create
+```
+
+### Body
+
+```json
+{
+    "customer_name": "Paulo",
+    "delivery_date": "11/10/2022",
+    "products": [{
+        "amount":1,
+        "id_product":"18"
+    }]
+}
+```
+
+### Response
+
+```json
+/* Success */
+{
+    "message": "Pedido criado com sucesso!"
+}
+
+/* Failed */
+{
+    "message": "Mensagem informando o erro!"
+}
+```
+
 <p>Caso queira utilizar e modificar, fique à vontade!</p>
 
 <h3 align="right"> Feito por: Paulo Henrique Correa da Silva </h3>
