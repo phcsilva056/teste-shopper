@@ -4,8 +4,9 @@ import * as Style from "./styled";
 import { goToPage } from "../../routes/coordinator";
 import { useNavigate } from "react-router-dom";
 
-export default function Header({ page = undefined }) {
+export default function Header({ page }) {
   const navigate = useNavigate();
+
   return (
     <Style.ContainerHeader>
       <Style.LineHeader />
@@ -14,7 +15,7 @@ export default function Header({ page = undefined }) {
         <Style.ImgLogo src={logo} />
         <Style.Divisor />
         <Style.NavHeader>
-          {(!page || page === "order") && (
+          {page !== "stock" && (
             <>
               <Style.ButtonNormal onClick={() => goToPage(navigate, "/stock")}>
                 Estoque

@@ -8,7 +8,8 @@ export const ContainerHeader = styled.header`
   position: sticky;
   width: 100%;
   @media screen and (max-width: 580px) {
-    height: 8rem;
+    min-height: 9rem;
+    padding-bottom: 0.4rem;
   }
 `;
 

@@ -22,7 +22,7 @@ export default function GlobalState({ children }) {
     } else {
       setOrderList([]);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function GlobalState({ children }) {
       const getData = async () => {
         const result = await GetProducts();
         setData(result.success ? result.data.data : undefined);
-        !result.success && alert(result.message)
+        !result.success && alert(result.message);
       };
       getData();
     }

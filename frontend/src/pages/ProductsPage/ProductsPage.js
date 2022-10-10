@@ -24,9 +24,21 @@ export default function ProductsPage() {
   };
 
   if (data && !products) {
-    setProducts(data)
-    setIsLoading(false)
+    setProducts(data);
+    setIsLoading(false);
   }
+
+  const showCardsProducts = products
+    ?.filter(
+      (item) =>
+        convertVowels(item.name).includes(convertVowels(input)) ||
+        convertVowels(item.name) === convertVowels(input)
+    )
+    .map((item) => {
+      return (
+        <CardProduct values={[item, orderList, setOrderList]} key={item.id} />
+      );
+    });
 
   return (
     <>
@@ -47,25 +59,7 @@ export default function ProductsPage() {
           </Style.ButtonOrderBy>
         </Style.BoxFilters>
         <GenStyle.DivSpace />
-        <Style.BoxCards>
-          {products &&
-            products
-              .filter(
-                (item) =>
-                  convertVowels(item.name).includes(convertVowels(input)) ||
-                  convertVowels(item.name) === convertVowels(input)
-              )
-              .map((item) => {
-                return (
-                  <CardProduct
-                    product={item}
-                    key={item.id}
-                    orderList={orderList}
-                    setOrderList={setOrderList}
-                  />
-                );
-              })}
-        </Style.BoxCards>
+        <Style.BoxCards>{products && showCardsProducts}</Style.BoxCards>
         <GenStyle.DivSpace />
       </Style.Container>
       <Footer />
