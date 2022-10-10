@@ -8,16 +8,19 @@ import { GlobalContext } from "../../global/GlobalContext";
 import TableOrderList from "../../components/TableOrderList/TableOrderList";
 import PostOrder from "../../services/PostOrder";
 import { filterOrderBy } from "../../services/filterOrderBy";
+import Loading from "../../components/Loading/Loading";
 
 export default function OrderPage() {
   const { data, orderList, setOrderList, form, onChange, clearForm } =
     useContext(GlobalContext);
   const [products, setProducts] = useState(undefined);
   const [count, setCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const today = new Date().toISOString().slice(0, 10);
 
   const onSubmitOrder = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     if (orderList.length) {
       const body = {
@@ -31,11 +34,12 @@ export default function OrderPage() {
         setOrderList([]);
         clearForm();
       } else {
-        alert("Nenhum produto foi escolhido!");
+        alert(result.message);
       }
     } else {
       alert("Nenhum produto foi escolhido!");
     }
+    setIsLoading(false);
   };
 
   const calculatedTotal = () => {
@@ -46,6 +50,7 @@ export default function OrderPage() {
         )[0];
         return product?.price * item.amount + total;
       }, 0);
+
       return resultTotal;
     }
     return 0;
@@ -58,6 +63,7 @@ export default function OrderPage() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     if (data) {
       const list = orderList.map((product) => {
         const index = data.findIndex(({ id }) => id === product.id_product);
@@ -70,6 +76,7 @@ export default function OrderPage() {
         };
       });
       setProducts(list);
+      setIsLoading(false);
     }
   }, [data, orderList]);
 
@@ -78,6 +85,7 @@ export default function OrderPage() {
   return (
     <>
       <Header page={"order"} />
+      {isLoading && <Loading />}
       <Style.Container>
         <GenStyle.DivSpace />
         <GenStyle.Title>Formulário de Pedidos</GenStyle.Title>

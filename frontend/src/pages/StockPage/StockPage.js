@@ -6,11 +6,13 @@ import * as GenStyle from "../../global/GeneralStyled";
 import TableStock from "../../components/TableStock/TableStock";
 import { GlobalContext } from "../../global/GlobalContext";
 import { filterOrderBy } from "../../services/filterOrderBy";
+import Loading from "../../components/Loading/Loading";
 
 export default function StockPage() {
   const { data } = useContext(GlobalContext);
   const [products, setProducts] = useState(undefined);
   const [count, setCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const filterBy = (name) => {
     const list = filterOrderBy(products, name, count);
@@ -18,11 +20,15 @@ export default function StockPage() {
     setCount(count + 1);
   };
 
-  if (data && !products) setProducts(data);
+  if (data && !products) {
+    setProducts(data);
+    setIsLoading(false)
+  }
 
   return (
     <>
       <Header page={"stock"} />
+      {isLoading && <Loading />}
       <Style.Container>
         <GenStyle.DivSpace />
         <GenStyle.Title>Lista de Estoque</GenStyle.Title>
