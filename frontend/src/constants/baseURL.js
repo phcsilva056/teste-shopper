@@ -1,1 +1,1 @@
-export const Base_URL = "https://shopper-teste.herokuapp.com"
+export const Base_URL = "http://localhost:3003"
