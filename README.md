@@ -90,4 +90,4 @@
         src="https://user-images.githubusercontent.com/104540624/194858384-fab6ce52-323b-48b8-98ac-e351b5f918a2.png" />
 </div>
 
-<h3 align="right"> Feito por: Paulo Henrique </h3>
+<h3 align="right"> Feito por: Paulo Henrique Correa da Silva </h3>
