@@ -22,8 +22,12 @@ export default function StockPage() {
 
   if (data && !products) {
     setProducts(data);
-    setIsLoading(false)
+    setIsLoading(false);
   }
+
+  const showLineTableProducts = products?.map((product) => {
+    return <TableStock product={product} key={product.id} />;
+  });
 
   return (
     <>
@@ -39,20 +43,12 @@ export default function StockPage() {
               <GenStyle.CellTableTitle onClick={() => filterBy("name")}>
                 Produto
               </GenStyle.CellTableTitle>
-              <GenStyle.CellTableTitle onClick={() => filterBy("price")}>
-                Preço
-              </GenStyle.CellTableTitle>
               <GenStyle.CellTableTitle onClick={() => filterBy("qty_stock")}>
                 Quantidade
               </GenStyle.CellTableTitle>
             </GenStyle.LineTable>
           </thead>
-          <tbody>
-            {products &&
-              products.map((product) => {
-                return <TableStock product={product} key={product.id} />;
-              })}
-          </tbody>
+          <tbody>{products && showLineTableProducts}</tbody>
         </GenStyle.Table>
         <GenStyle.DivSpace />
       </Style.Container>

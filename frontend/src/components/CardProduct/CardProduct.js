@@ -2,7 +2,8 @@ import React from "react";
 import { formatBRL } from "../../constants/FormatBRL";
 import * as Style from "./styled";
 
-export default function CardProduct({ product, orderList, setOrderList }) {
+export default function CardProduct({ values }) {
+  const [product, orderList, setOrderList] = values;
   const { id, qty_stock, name, price } = product;
   const exist = orderList.findIndex((item) => item.id_product === id);
 
@@ -25,12 +26,14 @@ export default function CardProduct({ product, orderList, setOrderList }) {
       .filter((item) => item.amount);
     setOrderList(list);
   };
+
   const amountInList = exist >= 0 ? orderList[exist].amount : 0;
+
   return (
     <Style.ContainerCard>
       <Style.DivAmountProduct>
         {exist >= 0 && (
-          <Style.AmountProduct>{`Adicionado na Lista(x${orderList[exist].amount})`}</Style.AmountProduct>
+          <Style.AmountProduct>{`Adicionado na Lista(x${amountInList})`}</Style.AmountProduct>
         )}
       </Style.DivAmountProduct>
       <Style.Name>{name}</Style.Name>
