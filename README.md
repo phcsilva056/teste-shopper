@@ -74,7 +74,7 @@
 
 <div align="center">
     <img width="70%"
-        src="https://user-images.githubusercontent.com/104540624/194858384-fab6ce52-323b-48b8-98ac-e351b5f918a2.png" />
+        src="https://user-images.githubusercontent.com/104540624/194888881-25013ccd-c923-4fe1-9e9f-484dab8e880d.png" />
 </div>
 
 <h3>Página de Lista de Produtos</h3>
