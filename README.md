@@ -61,7 +61,7 @@
 
 <div align="center">
     <img width="70%"
-        src="https://user-images.githubusercontent.com/104540624/194856868-694ff50e-1f1f-4e0d-82a0-1a4daabb8349.png" />
+        src="https://user-images.githubusercontent.com/104540624/194944878-cf2c5627-ecc4-4acd-a5af-64c4f0711ecb.png" />
 </div>
 
 <h3>Página de Lista de Estoque</h3>
@@ -88,7 +88,7 @@
 
 <div align="center">
     <img width="70%"
-        src="https://user-images.githubusercontent.com/104540624/194868399-e379726f-1548-4011-b106-a73dd049ea0a.png" />
+        src="https://user-images.githubusercontent.com/104540624/194944822-eb635354-5dcb-4e32-b837-16398b552a05.png" />
 </div>
 
 <h3 align="center">Backend</h3>
