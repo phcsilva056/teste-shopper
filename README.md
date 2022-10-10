@@ -16,8 +16,14 @@
 
 <h2>Link para Visualização do Projeto</h2>
 
+<h3> Site - Frontend </h3>
 <a href="https://shopper-paulo.surge.sh/">
     https://shopper-paulo.surge.sh/
+</a>
+
+<h3> API - Backend </h3>
+<a href="https://shopper-teste.herokuapp.com/">
+    https://shopper-teste.herokuapp.com/
 </a>
 
 <h2>Tecnologias utilizadas</h2>
