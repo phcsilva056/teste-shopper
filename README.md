@@ -107,4 +107,9 @@
 <h3><a href="https://github.com/phcsilva056/teste-shopper/tree/main/backend">Backend</a></h3>
 <a href="https://github.com/phcsilva056/teste-shopper/tree/main/backend">https://github.com/phcsilva056/teste-shopper/tree/main/backend</a>
 
+<h2>Entre em contato</h2>
+
+<h3>LinkedIn</h3>
+<a href="https://www.linkedin.com/in/phcsilva056/">https://www.linkedin.com/in/phcsilva056/</a>
+
 <h3 align="right"> Feito por: Paulo Henrique Correa da Silva </h3>
