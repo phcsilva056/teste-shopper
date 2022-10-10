@@ -65,10 +65,10 @@
 ``` bash
 $ git clone https://github.com/phcsilva056/teste-shopper.git
 ```
-<p>Certifique-se de estar dentro da pasta backend, caso não esteja utilize o comando:</p>
+<p>Certifique-se de estar dentro da pasta frontend, caso não esteja utilize o comando:</p>
 
 ``` bash
-$ cd backend
+$ cd frontend
 ```
 
 <p>Instale as dependências:</p>
@@ -77,36 +77,10 @@ $ cd backend
 $ npm install
 ```
 
-<p>Dentro da pasta backend crie um arquivo .env com os valores de seu banco de dados (por padrão está definido com
-    MySQL):</p>
-
-``` bash
-$ printf "DB_HOST = (edite aqui e coloque o endereço host do banco de dados)\nDB_USER = (edite aqui e coloque o nome de
-usuário do banco de dados)\nDB_PASSWORD = (edite aqui e coloque a senha do banco de dados)\nDB_DATABASE = (edite aqui e
-coloque o nome do banco de dados)" >> .env
-```
-
-<h3>OU</h3>
-
-<p>Se preferir fazer manualmente, crie um arquivo chamado .env e insira os valores abaixo:</p>
-
-```
-DB_HOST = (edite aqui e coloque o endereço host do banco de dados)
-DB_USER = (edite aqui e coloque o nome de usuário do banco de dados)
-DB_PASSWORD = (edite aqui e coloque a senha do banco de dados)
-DB_DATABASE = (edite aqui e coloque o nome do banco de dados)
-```
-
 <p>Agora basta rodar para testar:</p>
 
 ``` bash
-$ npm run dev
-```
-<p>Caso seu banco de dados esteja pronto para ser usado e seu .env tenha os valores inseridos, é possível povoar seu
-    banco de dados com alguns valores utilizando o migrations:</p>
-
-``` bash
-$ npm run migrations
+$ npm run start
 ```
 
 <p>Caso queira utilizar e modificar, fique à vontade!</p>
