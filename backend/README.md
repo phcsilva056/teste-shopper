@@ -94,6 +94,10 @@ $ npm run migrations
 
 <h2>Como funciona as endpoints?</h2>
 
+``` javascript
+Base_URL = "https://shopper-teste.herokuapp.com"
+```
+
 <p>Segue uma documentação simplificada do uso das duas endpoints existentes:</p>
 
 > <h2> GET - Get All Products </h2>
