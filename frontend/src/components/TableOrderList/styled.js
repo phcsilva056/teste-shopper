@@ -21,6 +21,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 50px;
   color: #ffffff;
+  cursor: pointer;
   font-family: "Courier New", Courier, monospace;
   font-size: 1.5rem;
   font-weight: 700;

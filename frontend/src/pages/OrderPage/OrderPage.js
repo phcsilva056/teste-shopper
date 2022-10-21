@@ -34,7 +34,9 @@ export default function OrderPage() {
         setOrderList([]);
         clearForm();
       } else {
-        alert(result.message);
+        const message =
+          result.error.response.data.message || result.message;
+        alert(message);
       }
     } else {
       alert("Nenhum produto foi escolhido!");
@@ -130,13 +132,7 @@ export default function OrderPage() {
                     <TableOrderList
                       orderList={orderList}
                       setOrderList={setOrderList}
-                      product={{
-                        id,
-                        name,
-                        price,
-                        amount,
-                        qty_stock,
-                      }}
+                      product={{id,name,price,amount,qty_stock,}}
                       key={id}
                     />
                   );
