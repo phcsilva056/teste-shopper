@@ -30,7 +30,10 @@ export default function GlobalState({ children }) {
       const getData = async () => {
         const result = await GetProducts();
         setData(result.success ? result.data.data : undefined);
-        !result.success && alert(result.message);
+        !result.success &&
+          alert(
+            `${result.message}\n${result.error.code} : ${result.error.message}`
+          );
       };
       getData();
     }

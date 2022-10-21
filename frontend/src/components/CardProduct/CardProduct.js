@@ -28,6 +28,7 @@ export default function CardProduct({ values }) {
   };
 
   const amountInList = exist >= 0 ? orderList[exist].amount : 0;
+  const inStock = qty_stock - amountInList;
 
   return (
     <Style.ContainerCard>
@@ -41,9 +42,11 @@ export default function CardProduct({ values }) {
         <Style.DivButtons>
           {exist >= 0 && (
             <>
-              <Style.ButtonRemove onClick={() => onClickRemove(10)}>
-                -10
-              </Style.ButtonRemove>
+              {amountInList > 1 && (
+                <Style.ButtonRemove onClick={() => onClickRemove(10)}>
+                  {amountInList > 9 ? `-10` : `-${amountInList}`}
+                </Style.ButtonRemove>
+              )}
               <Style.ButtonRemove onClick={() => onClickRemove(1)}>
                 -1
               </Style.ButtonRemove>
@@ -54,9 +57,11 @@ export default function CardProduct({ values }) {
               <Style.ButtonAdd onClick={() => onClickAdd(1)}>
                 {exist >= 0 ? "+1" : "Adicionar"}
               </Style.ButtonAdd>
-              {exist >= 0 && qty_stock >= amountInList + 10 && (
-                <Style.ButtonAdd onClick={() => onClickAdd(10)}>
-                  +10
+              {exist >= 0 && qty_stock > amountInList + 1 && (
+                <Style.ButtonAdd
+                  onClick={() => onClickAdd(inStock > 10 ? 10 : inStock)}
+                >
+                  {inStock > 10 ? `+10` : `+${inStock}`}
                 </Style.ButtonAdd>
               )}
             </>
